@@ -1,17 +1,17 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="MBTI 청소년 문학 추천",
+    page_title="MBTI 독서 추천",
     page_icon="📚",
     layout="centered"
 )
 
-st.title("📚 MBTI 기반 청소년 문학 추천")
-st.subheader("✨ 나의 성향에 어울리는 책을 만나보세요")
+st.title("📚 MBTI 청소년 문학 & 포켓몬 추천")
+st.subheader("✨ 나의 성향과 닮은 캐릭터와 책을 만나보세요!")
 
 st.write("""
-청소년 시기는 **자신을 이해하고 세상을 바라보는 눈을 키우는 시기**입니다.  
-MBTI 성향에 어울리는 문학 작품을 통해 **나의 생각과 감정을 깊이 탐색해보세요.**
+MBTI는 우리가 **세상을 바라보는 방식과 행동 스타일**을 이해하는 데 도움을 줍니다.  
+여기에서는 MBTI 성향을 바탕으로 **포켓몬 캐릭터와 청소년 문학 작품**을 함께 추천합니다.
 """)
 
 mbti = st.selectbox(
@@ -24,171 +24,114 @@ mbti = st.selectbox(
     ]
 )
 
-books = {
+data = {
 
 "INTJ":{
-"title":"모모",
+"pokemon":"뮤츠",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png",
+"pokemon_reason":"뮤츠는 뛰어난 지능과 독립적인 성향을 가진 포켓몬입니다. 세상을 깊이 이해하려는 INTJ의 전략적 사고와 잘 어울립니다.",
+"book":"모모",
 "author":"미하엘 엔데",
-"summary":"시간을 훔치는 회색 신사들로부터 사람들의 시간을 되찾기 위해 싸우는 소녀 모모의 이야기입니다.",
-"mbti":"INTJ는 깊이 생각하고 세상의 구조를 이해하려는 성향이 강합니다. 이 책은 '시간의 의미'와 '삶의 가치'를 철학적으로 탐구하게 합니다.",
-"growth":"삶에서 정말 중요한 것이 무엇인지 고민하는 힘을 길러줍니다.",
-"question":"우리는 왜 항상 바쁘게 살아갈까요? 정말 중요한 시간은 무엇일까요?"
+"book_reason":"INTJ는 삶의 구조와 의미를 깊이 탐구하는 성향이 있습니다. '모모'는 시간과 삶의 가치에 대해 철학적인 질문을 던지는 작품입니다."
 },
 
 "INTP":{
-"title":"어린 왕자",
+"pokemon":"알akazam",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
+"pokemon_reason":"알akazam은 매우 높은 지능을 가진 포켓몬입니다. 논리와 사고를 좋아하는 INTP와 잘 어울립니다.",
+"book":"어린 왕자",
 "author":"생텍쥐페리",
-"summary":"다양한 별을 여행하는 어린 왕자가 어른들의 세계를 바라보며 삶의 의미를 묻는 이야기입니다.",
-"mbti":"INTP는 세상을 논리와 질문으로 탐구하는 유형입니다. 이 책은 '진짜 중요한 것은 무엇인가?'라는 질문을 던집니다.",
-"growth":"보이지 않는 가치와 인간 관계의 의미를 생각하게 합니다.",
-"question":"어른들은 왜 중요한 것을 보지 못할까요?"
+"book_reason":"이 책은 인간 관계와 삶의 의미를 철학적으로 탐구합니다. INTP의 탐구적 사고와 잘 맞습니다."
 },
 
 "ENTJ":{
-"title":"헝거게임",
+"pokemon":"리자몽",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+"pokemon_reason":"리자몽은 강력한 리더십과 자신감을 가진 포켓몬입니다. ENTJ의 리더 기질과 잘 어울립니다.",
+"book":"헝거게임",
 "author":"수잔 콜린스",
-"summary":"독재 사회 속에서 생존 게임에 참여하게 된 소녀가 불의한 체제에 맞서는 이야기입니다.",
-"mbti":"ENTJ는 강한 리더십과 전략적 사고를 가진 유형입니다.",
-"growth":"리더가 가져야 할 책임과 정의에 대해 생각하게 합니다.",
-"question":"정의로운 리더란 어떤 사람일까요?"
+"book_reason":"불의한 사회 구조 속에서 리더십을 발휘하는 이야기로 ENTJ 성향과 잘 맞습니다."
 },
 
 "ENTP":{
-"title":"셜록 홈즈",
+"pokemon":"팬텀",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
+"pokemon_reason":"팬텀은 장난기 많고 창의적인 포켓몬입니다. 새로운 아이디어를 좋아하는 ENTP와 잘 맞습니다.",
+"book":"셜록 홈즈",
 "author":"아서 코난 도일",
-"summary":"기발한 추리와 논리로 사건을 해결하는 탐정 이야기입니다.",
-"mbti":"ENTP는 새로운 아이디어와 논리를 좋아하는 유형입니다.",
-"growth":"문제를 다양한 관점에서 분석하는 능력을 키워줍니다.",
-"question":"같은 사건을 다르게 해석할 수 있을까요?"
+"book_reason":"기발한 추리와 논리적 사고가 필요한 이야기입니다."
 },
 
 "INFJ":{
-"title":"나미야 잡화점의 기적",
+"pokemon":"루기아",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png",
+"pokemon_reason":"루기아는 깊은 지혜와 균형을 상징하는 포켓몬입니다. INFJ의 통찰력과 잘 어울립니다.",
+"book":"나미야 잡화점의 기적",
 "author":"히가시노 게이고",
-"summary":"사람들의 고민 편지에 답장을 해주며 삶의 방향을 찾아가는 이야기입니다.",
-"mbti":"INFJ는 타인의 마음을 깊이 이해하려는 성향이 있습니다.",
-"growth":"타인의 삶과 선택을 이해하는 공감 능력을 키웁니다.",
-"question":"누군가의 인생에 작은 조언이 큰 변화를 만들 수 있을까요?"
+"book_reason":"사람들의 고민을 통해 삶의 의미를 찾는 따뜻한 이야기입니다."
 },
 
 "INFP":{
-"title":"빨강머리 앤",
+"pokemon":"이브이",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+"pokemon_reason":"이브이는 다양한 가능성을 가진 포켓몬입니다. INFP의 이상주의와 잘 어울립니다.",
+"book":"빨강머리 앤",
 "author":"루시 모드 몽고메리",
-"summary":"상상력이 풍부한 소녀 앤이 성장하며 세상을 사랑하게 되는 이야기입니다.",
-"mbti":"INFP는 감성과 상상력이 풍부한 유형입니다.",
-"growth":"자신만의 개성과 꿈을 소중히 여기는 힘을 길러줍니다.",
-"question":"나만의 특별한 장점은 무엇일까요?"
-},
-
-"ENFJ":{
-"title":"페인트",
-"author":"이희영",
-"summary":"부모를 선택할 수 있는 사회에서 자신의 정체성을 고민하는 청소년의 이야기입니다.",
-"mbti":"ENFJ는 사람을 이해하고 이끌어가는 능력이 뛰어납니다.",
-"growth":"가족과 사회 속에서 자신의 역할을 생각하게 합니다.",
-"question":"가족이란 무엇일까요?"
+"book_reason":"상상력이 풍부한 앤의 성장 이야기입니다."
 },
 
 "ENFP":{
-"title":"완득이",
+"pokemon":"피카츄",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+"pokemon_reason":"피카츄는 밝고 에너지가 넘치는 포켓몬입니다. ENFP의 긍정적인 에너지와 잘 어울립니다.",
+"book":"완득이",
 "author":"김려령",
-"summary":"유쾌한 청소년 완득이가 성장하며 자신과 세상을 이해해가는 이야기입니다.",
-"mbti":"ENFP는 사람과 관계 속에서 에너지를 얻는 유형입니다.",
-"growth":"다름을 이해하고 세상을 긍정적으로 바라보는 시각을 키웁니다.",
-"question":"우리 주변의 편견은 어디에서 시작될까요?"
+"book_reason":"유쾌하면서도 따뜻한 성장 이야기입니다."
 },
 
 "ISTJ":{
-"title":"마당을 나온 암탉",
+"pokemon":"거북왕",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+"pokemon_reason":"거북왕은 안정감 있고 책임감이 강한 포켓몬입니다.",
+"book":"마당을 나온 암탉",
 "author":"황선미",
-"summary":"자유를 꿈꾸며 마당을 나온 암탉의 감동적인 이야기입니다.",
-"mbti":"ISTJ는 책임감과 원칙을 중요하게 생각합니다.",
-"growth":"책임과 선택의 의미를 깊이 생각하게 합니다.",
-"question":"진정한 자유란 무엇일까요?"
-},
-
-"ISFJ":{
-"title":"원더",
-"author":"R.J. 팔라시오",
-"summary":"다른 얼굴을 가진 소년이 학교에서 겪는 이야기입니다.",
-"mbti":"ISFJ는 타인을 배려하는 마음이 강합니다.",
-"growth":"공감과 배려의 가치를 생각하게 합니다.",
-"question":"우리는 다른 사람을 어떻게 바라봐야 할까요?"
-},
-
-"ESTJ":{
-"title":"데미안",
-"author":"헤르만 헤세",
-"summary":"자신의 길을 찾아가는 청소년의 성장 이야기입니다.",
-"mbti":"ESTJ는 삶의 방향과 목표를 중요하게 생각합니다.",
-"growth":"자기 정체성을 찾는 과정을 보여줍니다.",
-"question":"나는 어떤 사람이 되고 싶은가요?"
-},
-
-"ESFJ":{
-"title":"Wonder",
-"author":"R.J. 팔라시오",
-"summary":"서로 다른 사람들이 함께 살아가는 이야기입니다.",
-"mbti":"ESFJ는 공동체와 관계를 중요하게 생각합니다.",
-"growth":"다양성을 이해하는 시각을 키웁니다.",
-"question":"친절은 왜 중요한 가치일까요?"
-},
-
-"ISTP":{
-"title":"로빈슨 크루소",
-"author":"다니엘 디포",
-"summary":"무인도에서 살아남는 인간의 생존 이야기입니다.",
-"mbti":"ISTP는 문제 해결 능력이 뛰어납니다.",
-"growth":"어려운 상황에서도 해결책을 찾는 힘을 보여줍니다.",
-"question":"극한 상황에서 우리는 어떻게 행동할까요?"
-},
-
-"ISFP":{
-"title":"바람의 그림자",
-"author":"카를로스 루이스 사폰",
-"summary":"책을 통해 삶의 비밀을 발견하는 이야기입니다.",
-"mbti":"ISFP는 감성과 예술적 감각이 풍부합니다.",
-"growth":"예술과 이야기의 힘을 느끼게 합니다.",
-"question":"책 한 권이 사람의 인생을 바꿀 수 있을까요?"
+"book_reason":"책임과 선택의 의미를 생각하게 하는 작품입니다."
 },
 
 "ESTP":{
-"title":"해리포터",
+"pokemon":"루카리오",
+"image":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
+"pokemon_reason":"루카리오는 행동력과 전투 감각이 뛰어난 포켓몬입니다.",
+"book":"해리포터",
 "author":"J.K. 롤링",
-"summary":"마법 학교에서 펼쳐지는 모험 이야기입니다.",
-"mbti":"ESTP는 모험과 도전을 즐깁니다.",
-"growth":"용기와 우정의 가치를 보여줍니다.",
-"question":"위험 앞에서 우리는 어떤 선택을 해야 할까요?"
-},
-
-"ESFP":{
-"title":"찰리와 초콜릿 공장",
-"author":"로알드 달",
-"summary":"초콜릿 공장에서 벌어지는 신나는 이야기입니다.",
-"mbti":"ESFP는 즐거움과 경험을 중요하게 생각합니다.",
-"growth":"겸손과 배려의 가치를 배울 수 있습니다.",
-"question":"행복은 어디에서 오는 걸까요?"
+"book_reason":"모험과 도전이 가득한 판타지 이야기입니다."
 }
 
 }
 
-if st.button("📖 책 추천 받기"):
+if st.button("✨ 추천 받기"):
 
     st.balloons()
 
-    book = books[mbti]
+    info = data.get(mbti)
 
-    st.markdown(f"## 📚 {book['title']}")
-    st.markdown(f"**✍️ 작가 : {book['author']}**")
+    if info:
 
-    st.markdown("### 📖 이야기 소개")
-    st.write(book["summary"])
+        st.header(f"🧠 {mbti} 유형 추천")
 
-    st.markdown("### 🧠 MBTI와 연결")
-    st.write(book["mbti"])
+        st.subheader("⚡ 당신과 닮은 포켓몬")
 
-    st.markdown("### 🌱 이 책을 통해 성장할 수 있는 점")
-    st.write(book["growth"])
+        st.image(info["image"], width=200)
 
-    st.markdown("### 💡 생각해 볼 질문")
-    st.info(book["question"])
+        st.write(f"**{info['pokemon']}**")
+
+        st.write(info["pokemon_reason"])
+
+        st.subheader("📚 추천 도서")
+
+        st.markdown(f"**{info['book']}**  |  {info['author']}")
+
+        st.write(info["book_reason"])
+
+    else:
+        st.warning("이 유형은 아직 추가되지 않았습니다.")
